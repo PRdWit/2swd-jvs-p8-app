@@ -26,5 +26,8 @@ class Application{
 
 
 
-const app = new Application();
-app.updateDom();
+document.addEventListener("DOMContentLoaded", () => {
+    const app = new Application();
+    app.updateDom();
+    console.log("Application started");
+});
