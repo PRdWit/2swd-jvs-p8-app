@@ -1,10 +1,10 @@
-class Application{
-    $loggedIn;
-
-
-    constructor(){
-        this.$loggedIn = true;
-        console.log("Testing")
+export class Application{
+    constructor(loggedIn){
+        this.loggedIn = loggedIn;
+        document.addEventListener("DOMContentLoaded", () => {
+            this.updateDom();
+            console.log("Application started!");
+        });
     }
 
     updateDom(){
@@ -12,7 +12,8 @@ class Application{
         const login = document.querySelector(".login")
         const profile = document.querySelector(".profile")
         const register = document.querySelector(".register")
-        if(this.$loggedIn == true ){
+        
+        if(this.loggedIn){
             login.style.display = "none"
             register.style.display = "none"
 
@@ -26,8 +27,3 @@ class Application{
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const app = new Application();
-    app.updateDom();
-    console.log("Application started");
-});
