@@ -5,6 +5,12 @@ export class Application{
             this.updateDom();
             console.log("Application started!");
         });
+
+        const loginBtn = document.querySelector(".login");
+        loginBtn.addEventListener("click", this.login());
+
+        const logoutBtn = document.querySelector(".logout");
+        logoutBtn.addEventListener("click", this.logout());
     }
 
     updateDom(){
@@ -25,16 +31,27 @@ export class Application{
     }
 
     login(){
+        const dialog = document.getElementById("login-dialog");
+        dialog.showModal();
+
+        const email = document.getElementById("login-email").value;
+        const password = document.getElementById("login-password").value;
+
+        new User(email, password);
+    }
+
+    logout() {
         
     }
 }
 
 class User{
     username;
+    password;
 
-    constructor(username){
-        $this.username = username;
-
+    constructor(username, password){
+        this.username = username;
+        this.password = password;
     }
 }
 
